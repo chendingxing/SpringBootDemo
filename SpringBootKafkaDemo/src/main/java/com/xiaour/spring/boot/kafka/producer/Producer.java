@@ -31,4 +31,11 @@ public class Producer {
         kafkaTemplate.send("test", gson.toJson(message));
     }
 
+    //发送消息方法
+    public void send(String topic,Message message) {
+        message.setId("KFK_"+System.currentTimeMillis());
+        message.setSendTime(new Date());
+        kafkaTemplate.send(topic, gson.toJson(message));
+    }
+
 }

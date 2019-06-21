@@ -21,4 +21,10 @@ public class SendController {
         producer.send();
         return "{\"code\":0}";
     }
+
+    @RequestMapping(value = "/sendTopic")
+    public String send(String topic,Message message) {
+        producer.send(topic,message);
+        return "{\"code\":0}";
+    }
 }
